@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "browserify": "^17.0.0",
-    "ethers": "^5.7.2"
+    "ethers": "^5.7.2",
+    "nodejs": "^0.0.0",
+    "prompt-promise": "^1.0.3"
   }
 }

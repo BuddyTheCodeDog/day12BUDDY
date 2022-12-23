@@ -1,24 +1,60 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+// document.addEventListener("click", function(){
+//    alert("clicked the page!"); 
+// })
 const ethers = require("ethers");
 
-document.addEventListener("click", function() {
-    // provider is a ethereum provider, and we create it with window.ethereum, which is
-    // how we access Metamask in code.
-    // the window.ethereum object is available if a user has metamask installed.
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    // we can call the .send method on the provider, and tell it what we want: to request accounts.
-    // this is how we get metamasks APPROVAL for a certain website.
+
+const mybutton = document.getElementById("mybutton");
+const getBlockNumber = document.getElementById("getBlockNumber");
+const blockNumber = document.getElementById("blockNumber");
+const getGasPrice = document.getElementById("getGasPrice");
+const gasPrice = document.getElementById("gasPrice");
+const getChainId = document.getElementById("getChainId");
+const divEthAddress = document.getElementById("ethereumAddress");
+const divEthBalance = document.getElementById("ethereumBalance");
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+console.log(mybutton);
+console.log(getBlockNumber);
+
+mybutton.addEventListener("click", function(){
+    console.log("My Button was pressed");
     provider.send("eth_requestAccounts", []).then(addresses => {
-        // use the ethers library to get the users balance, and display it to the page.
         console.log(addresses);
         const address = addresses[0];
         console.log(address);
+        divEthAddress.innerText = address;
 
-        provider.getBalance(address).then(balance => {
+        provider.getBalance(address).then((balance) => {
             console.log(balance.toString());
-        })
+            divEthBalance.innerText = balance.toString();
+          });
+
     })
 });
+
+getBlockNumber.addEventListener("click", function(){
+    console.log("test");
+    provider.getBlockNumber().then(blockTheNumber => {
+        console.log(blockTheNumber.toString());
+        blockNumber.innerText = blockTheNumber.toString();
+
+    })
+
+
+});
+
+
+getGasPrice.addEventListener("click",function(){
+    console.log("testeest");
+    provider.getGasPrice().then(gotGasPrice => {
+        const readGasPrice = ethers.utils.formatEther(gotGasPrice);
+        gasPrice.innerText = readGasPrice;
+
+    })
+});
+
 },{"ethers":150}],2:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
