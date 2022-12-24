@@ -2,11 +2,28 @@
     <head>
         <link rel="stylesheet" href="index.css">
       </head>
+
+      <div class="container">
+        <nav class="side-nav">
+          <ul class="nav-menu">
+            <button id="mybutton" class="nav-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span class="menu-text">Connect Wallet</span>
+              </button>
+              <div id="ethereumAddress"></div>
+            <div id="ethereumBalance"></div>
+              
+            <li class="nav-item"><a href="#"><i class="fas fa-user"></i><span class="menu-text">Users</span></a></li>
+            <li class="nav-item active"><a href="#"><i class="fas fa-file-alt"></i><span class="menu-text">Posts</span></a></li>
+            <li class="nav-item"><a href="#"><i class="fas fa-play "></i><span class="menu-text">Media</span></a></li>
+            <li class="nav-item"><a href="#"><i class="fas fa-sign-out-alt"></i><span class="menu-text">exit</span></a></li>
+          </ul>
+        </nav>
+      </div>
     <body>
         
-        <button id="mybutton">My Button</button>
-        <div id="ethereumAddress">eth address</div>
-        <div id="ethereumBalance">eth balance</div>
+        
+        
 
         <button id="getBlockNumber">Get blockNumber</button>
         <div id="blockNumber">block number goes here</div>
@@ -14,7 +31,7 @@
         <button id="getGasPrice">Get Gas Price</button>
         <div id="gasPrice">gas price goes here</div>
 
-        <button id="getchainId">Get chainId and Network Name</button>
+        <button id="getChainId">Get chainId and Network Name</button>
         <div id="chainId">chain id goes here</div>
         <div id="networkName">network name goes</div>
         

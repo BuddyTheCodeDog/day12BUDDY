@@ -11,6 +11,8 @@ const blockNumber = document.getElementById("blockNumber");
 const getGasPrice = document.getElementById("getGasPrice");
 const gasPrice = document.getElementById("gasPrice");
 const getChainId = document.getElementById("getChainId");
+const chainId = document.getElementById("chainId");
+const networkName = document.getElementById("networkName");
 const divEthAddress = document.getElementById("ethereumAddress");
 const divEthBalance = document.getElementById("ethereumBalance");
 const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -24,11 +26,12 @@ mybutton.addEventListener("click", function(){
         console.log(addresses);
         const address = addresses[0];
         console.log(address);
-        divEthAddress.innerText = address;
+        mybutton.innerText = "CONNECTED";
+        divEthAddress.innerText = `${address}`;
 
         provider.getBalance(address).then((balance) => {
             console.log(balance.toString());
-            divEthBalance.innerText = balance.toString();
+            divEthBalance.innerText = `Balance: ${balance.toString()}`;
           });
 
     })
@@ -45,6 +48,16 @@ getBlockNumber.addEventListener("click", function(){
 
 });
 
+getChainId.addEventListener("click", function(){
+    console.log("chainidTest");
+    provider.getNetwork().then(theNetwork =>{
+        console.log(theNetwork);
+        chainId.innerText = theNetwork.chainId;
+        networkName.innerText = theNetwork.name;
+    })
+
+})
+
 
 getGasPrice.addEventListener("click",function(){
     console.log("testeest");
@@ -55,6 +68,21 @@ getGasPrice.addEventListener("click",function(){
     })
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    var lis = document.querySelectorAll("li");
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].addEventListener("click", function(e) {
+        e.preventDefault();
+        var activeLis = document.querySelectorAll(".active");
+        for (var j = 0; j < activeLis.length; j++) {
+          activeLis[j].classList.remove("active");
+        }
+        this.classList.add("active");
+      });
+    }
+  });
+  
+  
 },{"ethers":150}],2:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
