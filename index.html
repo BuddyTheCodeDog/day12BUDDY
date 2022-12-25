@@ -3,36 +3,64 @@
         <link rel="stylesheet" href="index.css">
       </head>
 
+      <div class="banner">
+        <div id="topbuddydapp">Buddy's Dapp</div>
+      </div>
+
+      <div class="topcontainer">
+        
+        
+        <nav class="top-nav">
+          <ul class="top-nav-menu">
+            <div id="ethereumAddress"></div>
+            <div id="ethereumBalance"></div>
+
+          </ul>
+        </nav>
+      </div>
+
       <div class="container">
         <nav class="side-nav">
+
+          <div class="insidecontainer">
+            <ul class="insidecontainer-ul">
+              <div id="insidebox"></div>
+            <button id="getBlockNumber">Get blockNumber</button>
+            
+            <div id="blockNumber">block number goes here</div>
+            <div id="insidebox"></div>
+    
+            <button id="getGasPrice">Get Gas Price</button>
+            <div id="gasPrice">gas price goes here</div>
+    
+            <button id="getChainId">Get chainId and Network Name</button>
+            <div id="chainId">chain id goes here</div>
+            <div id="networkName">network name goes</div>
+          </ul>
+
+          </div>
+          
           <ul class="nav-menu">
             <button id="mybutton" class="nav-item">
                 <i class="fas fa-tachometer-alt"></i>
                 <span class="menu-text">Connect Wallet</span>
               </button>
-              <div id="ethereumAddress"></div>
-            <div id="ethereumBalance"></div>
+             
               
-            <li class="nav-item"><a href="#"><i class="fas fa-user"></i><span class="menu-text">Ethereum Block Stats</span></a></li>
-            <li class="nav-item active"><a href="#"><i class="fas fa-file-alt"></i><span class="menu-text">Butt Holes</span></a></li>
-        
+            <li class="nav-item active"><a href="#"><i class="fas fa-user"></i><span class="menu-text">Ethereum Block Stats</span></a></li>
+            <li class="nav-item"><a href="#"><i class="fas fa-file-alt"></i><span class="menu-text">Butt Holes</span></a></li>
+            
           </ul>
+          
         </nav>
       </div>
+      
     <body>
-        
+      <button id="getGasPrice">Get Gas Price</button>
+      
         
         
 
-        <button id="getBlockNumber">Get blockNumber</button>
-        <div id="blockNumber">block number goes here</div>
-
-        <button id="getGasPrice">Get Gas Price</button>
-        <div id="gasPrice">gas price goes here</div>
-
-        <button id="getChainId">Get chainId and Network Name</button>
-        <div id="chainId">chain id goes here</div>
-        <div id="networkName">network name goes</div>
         
         <script src="bundle.js"></script>
     </body>
